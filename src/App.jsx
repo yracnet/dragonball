@@ -9,7 +9,6 @@ import {
   Row,
 } from "react-bootstrap";
 import data from "./data.json";
-import { PageLayout } from "./layout";
 
 const Text = ({ value = "", max = 100 }) => {
   value = value.length > max ? value.substring(0, max) : value;
@@ -29,8 +28,8 @@ function App() {
     // }
   };
   return (
-    <PageLayout>
-      <div className="capitulos">
+    <Row>
+      <Col sm="6" md="3">
         <Accordion defaultActiveKey="0" size="sm">
           {data.map((it, ix) => {
             return (
@@ -72,24 +71,21 @@ function App() {
             );
           })}
         </Accordion>
-      </div>
-      <div className="video">
-        <iframe allowFullScreen onLoad={onToStart} src={focus?.url}></iframe>
-      </div>
-      <div className="title">
+      </Col>
+      <Col sm="6" md="9" className="video">
         <h2>
           <Badge>{focus?.nro}</Badge> {focus?.titulo}
         </h2>
-      </div>
-      <div className="back"></div>
-      <div className="summary">{focus?.resumen}</div>
-      <div className="next"></div>
-
-      <Row>
-        <Col></Col>
-        <Col></Col>
-      </Row>
-    </PageLayout>
+        <p>{focus?.resumen}</p>
+        <iframe
+          width={600}
+          height={400}
+          allowFullScreen
+          onLoad={onToStart}
+          src={focus?.url}
+        ></iframe>
+      </Col>
+    </Row>
   );
 }
 
