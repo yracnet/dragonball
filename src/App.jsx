@@ -1,14 +1,7 @@
-import { useState } from "react";
-import {
-  Accordion,
-  Badge,
-  Card,
-  CardGroup,
-  Col,
-  Container,
-  Row,
-} from "react-bootstrap";
-import data from "./data.json";
+import { useEffect, useState } from "react";
+import { Accordion, Badge, Card, Col, Row } from "react-bootstrap";
+//import data from "../public/data.json" assert { type: "json" };
+const baseName = import.meta.env.BASE_URL;
 
 const Text = ({ value = "", max = 100 }) => {
   value = value.length > max ? value.substring(0, max) : value;
@@ -17,6 +10,12 @@ const Text = ({ value = "", max = 100 }) => {
 
 function App() {
   const [focus, setFocus] = useState(null);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch(`${baseName}/data.json`)
+      .then((r) => r.json())
+      .then((data) => setData(data));
+  }, []);
   const onToStart = (e) => {
     // debugger;
     // const iframe = e.target;
@@ -40,9 +39,9 @@ function App() {
                 </Accordion.Header>
                 <Accordion.Body className="scrolling-body">
                   <div>
-                    {it.capitulos.map((it) => {
+                    {it.capitulos.map((it, ix) => {
                       return (
-                        <Card className="link">
+                        <Card key={ix} className="link">
                           <Card.Body>
                             <Badge>Cap: {it.nro}</Badge>
                             <a

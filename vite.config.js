@@ -5,5 +5,14 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/dragonball",
   //server: { port: 80 },
+  build: {
+    rollupOptions: {
+      external: [
+        //"react",
+        //"react-dom",
+        "data.json",
+      ],
+    },
+  },
   plugins: [react()],
 });
