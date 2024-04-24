@@ -44,7 +44,7 @@ function App() {
                             <Card.Text>
                               <Text value={it.resumen} max={200} />
                               <a
-                                href={`#${it.titulo}`}
+                                href={`#${it.nro}`}
                                 onClick={() => setFocus(it)}
                               >
                                 <b>PLAY</b>
