@@ -9,23 +9,13 @@ const Text = ({ value = "", max = 100 }) => {
 };
 
 function App() {
-  const [focus, setFocus] = useState(null);
+  const [focus, setFocus] = useState({});
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch(`${baseName}/data.json`)
       .then((r) => r.json())
       .then((data) => setData(data));
   }, []);
-  const onToStart = (e) => {
-    // debugger;
-    // const iframe = e.target;
-    // const iframeDocument =
-    //   iframe.contentDocument || iframe.contentWindow.document;
-    // const videoPlayer = iframeDocument.querySelector("video");
-    // if (videoPlayer) {
-    //   videoPlayer.currentTime = 60;
-    // }
-  };
   return (
     <Row>
       <Col sm="6" md="3">
@@ -47,7 +37,7 @@ function App() {
                             <a
                               target="_blank"
                               href={it.url}
-                              onClick={(e) => setFocus(it)}
+                              onClick={() => setFocus(it)}
                             >
                               <b>{it.titulo}</b>
                             </a>
@@ -73,15 +63,14 @@ function App() {
       </Col>
       <Col sm="6" md="9" className="video">
         <h2>
-          <Badge>{focus?.nro}</Badge> {focus?.titulo}
+          <Badge>{focus.nro}</Badge> {focus.titulo}
         </h2>
-        <p>{focus?.resumen}</p>
+        <p>{focus.resumen}</p>
         <iframe
           width={600}
           height={400}
           allowFullScreen
-          onLoad={onToStart}
-          src={focus?.url}
+          src={focus.url}
         ></iframe>
       </Col>
     </Row>
