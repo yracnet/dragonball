@@ -1,15 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Accordion,
-  Badge,
-  Button,
-  Card,
-  Col,
-  ListGroup,
-  ListGroupItem,
-  Row,
-  Table,
-} from "react-bootstrap";
+import { Accordion, Badge, Button, Col, Row, Table } from "react-bootstrap";
 //import data from "../public/data.json";
 const baseName = import.meta.env.BASE_URL;
 
@@ -24,6 +14,7 @@ function App() {
   return (
     <Row>
       <Col sm="6" md="3">
+        DRAGONBALL
         <Accordion defaultActiveKey="0">
           {data.map((it, ix) => {
             return (
@@ -53,9 +44,12 @@ function App() {
                               </a>
                             </td>
                             <td className={className}>
-                              <Button onClick={() => setFocus(it)}>
+                              <a
+                                href={`#${it.url}`}
+                                onClick={() => setFocus(it)}
+                              >
                                 <b>PLAY</b>
-                              </Button>
+                              </a>
                             </td>
                           </tr>
                         );
