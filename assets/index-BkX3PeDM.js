@@ -8721,7 +8721,6 @@ function App() {
                   target: "_blank",
                   href: it2.url,
                   onClick: () => setFocus(it2),
-                  className: "btn btn-danger",
                   children: /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: it2.titulo })
                 }
               ) }),
