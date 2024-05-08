@@ -9106,7 +9106,7 @@
           });
           const [data, setData] = reactExports.useState([]);
           reactExports.useEffect(() => {
-            fetch(`${baseName}data.json`).then(r => r.json()).then(data2 => setData(data2));
+            fetch(`${baseName}/data.json`).then(r => r.json()).then(data2 => setData(data2));
           }, []);
           return /* @__PURE__ */jsxRuntimeExports.jsxs(Row$1, {
             children: [/* @__PURE__ */jsxRuntimeExports.jsxs(Col$1, {

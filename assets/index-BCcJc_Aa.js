@@ -8697,7 +8697,7 @@ function App() {
   const [focus, setFocus] = reactExports.useState({ nro: 0 });
   const [data, setData] = reactExports.useState([]);
   reactExports.useEffect(() => {
-    fetch("".concat(baseName, "data.json")).then((r2) => r2.json()).then((data2) => setData(data2));
+    fetch("".concat(baseName, "/data.json")).then((r2) => r2.json()).then((data2) => setData(data2));
   }, []);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Col$1, { sm: "6", md: "3", children: [
