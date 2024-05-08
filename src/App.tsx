@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Accordion, Badge, Button, Col, Row, Table } from "react-bootstrap";
+import { Accordion, Badge, Col, Row, Table } from "react-bootstrap";
 //import data from "../public/data.json";
 const baseName = import.meta.env.BASE_URL;
 
@@ -47,6 +47,7 @@ function App() {
                               <a
                                 href={`#${it.url}`}
                                 onClick={() => setFocus(it)}
+                                className="btn btn-primary"
                               >
                                 <b>PLAY</b>
                               </a>

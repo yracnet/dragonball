@@ -8,26 +8,22 @@ export default defineConfig({
   server: { port: 80 },
   preview: { port: 80 },
   build: {
+    minify: false,
+    target: "es5",
     rollupOptions: {
       external: [
         // external libs
-        "react",
-        "react-dom",
-        "react/jsx-runtime",
-        "react-bootstrap",
-        // "data.json",
+        // "react",
+        // "react-dom",
+        // "react/jsx-runtime",
+        // "react-bootstrap",
       ],
     },
   },
   plugins: [
     react(),
     legacy({
-      polyfills: ["es.promise.finally", "es/map", "es/set"],
-      modernPolyfills: ["es.promise.finally"],
-      renderLegacyChunks: false,
       targets: ["defaults", "not IE 11"],
-      //polyfills: ["es/object/has-own"],
-      //modernPolyfills: ["es/object/has-own"],
     }),
   ],
 });
